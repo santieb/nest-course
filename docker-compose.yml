@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  nest_course_db:
+    image: postgres:15.1-alpine
+    container_name: nest_course
+    restart: always
+    environment:
+      POSTGRES_DB: nest_course
+      POSTGRES_USER: unest
+      POSTGRES_PASSWORD: secret1234
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
