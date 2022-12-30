@@ -8,7 +8,6 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   app.use(morgan('dev'));
-
   app.enableCors(CORS);
   app.setGlobalPrefix('api');
 
